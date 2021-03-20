@@ -6,12 +6,9 @@ import validators from "../validators";
 import path from "path";
 
 let router = Router();
-let auth = controllers.auth;
-let admin = controllers.admin;
+let blog = controllers.blog;
 let validator = validators.authValidator;
-let { driverValidator } = validators;
 
-router.post("/auth/login", validator.validateUserLogin, auth.login);
-router.post("/auth/logout", auth.checkAdminAuthenticated, auth.logout);
+router.get("/blog", blog.checkAdminAuthenticated, blog.findAll);
 
 export default router;

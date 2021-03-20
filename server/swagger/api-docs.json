@@ -13,9 +13,52 @@
     "tags": [{
             "name": "Auth",
             "description": "Operations about Auth"
-        } 
+        } ,{
+            "name": "Blog",
+            "description": "Operations about Blog"
+          }
     ],
     "paths": {
+        
+    "/blog": {
+        "get": {
+          "tags": ["Blog"],
+          "description": "Blog list.",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "access_token",
+              "type": "string",
+              "description": "Access token",
+              "required": true
+            },
+            {
+              "in": "query",
+              "name": "limit",
+              "type": "string",
+              "description": "Search",
+              "required": false
+            },
+            {
+              "in": "query",
+              "name": "offset",
+              "type": "string",
+              "description": "Search",
+              "required": false
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Blog object.",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
         "/auth/login": {
             "post": {
                 "tags": [
@@ -78,129 +121,6 @@
                 "responses": {
                     "200": {
                         "description": "User object.",
-                        "schema": {
-                            "type": "object"
-                        }
-                    }
-                }
-            }
-        },
-        "/auth/change-password": {
-            "post": {
-                "tags": [
-                    "Auth"
-                ],
-                "description": "User change password.",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [{
-                        "in": "header",
-                        "name": "access_token",
-                        "type": "string",
-                        "description": "Access token",
-                        "required": true
-
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "Change Password",
-                        "type": "body",
-                        "required": true,
-                        "schema": {
-                            "properties": {
-                                "current_password": {
-                                    "type": "string"
-                                },
-                                "new_password": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Message.",
-                        "schema": {
-                            "type": "object"
-                        }
-                    }
-                }
-            }
-        },
-        "/auth/forgot-password": {
-            "post": {
-                "tags": [
-                    "Auth"
-                ],
-                "description": "User forgot password.",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [{
-                    "in": "body",
-                    "name": "body",
-                    "description": "Forgot Password",
-                    "type": "body",
-                    "required": true,
-                    "schema": {
-                        "properties": {
-                            "email": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                }],
-                "responses": {
-                    "200": {
-                        "description": "Message.",
-                        "schema": {
-                            "type": "object"
-                        }
-                    }
-                }
-            }
-        },
-        "/auth/reset-password": {
-            "post": {
-                "tags": [
-                    "Auth"
-                ],
-                "description": "User reset password.",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [{
-                    "in": "body",
-                    "name": "body",
-                    "description": "Reset Password",
-                    "type": "body",
-                    "required": true,
-                    "schema": {
-                        "properties": {
-                            "token": {
-                                "type": "string"
-                            },
-                            "password": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                }],
-                "responses": {
-                    "200": {
-                        "description": "Message.",
                         "schema": {
                             "type": "object"
                         }

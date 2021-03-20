@@ -19,7 +19,7 @@ let User = (sequelize, DataTypes) => {
       },
       first_name: { type: DataTypes.STRING(100), allowNull: false },
       last_name: { type: DataTypes.STRING(100), allowNull: false },
-      date_of_birth: { type: DataTypes.DATE, allowNull: false },
+      //   date_of_birth: { type: DataTypes.DATE(), defaultValue: null },
       password: {
         type: DataTypes.STRING,
         allowNull: false,

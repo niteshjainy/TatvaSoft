@@ -1,9 +1,11 @@
-'use strict';
+"use strict";
 
-import auth from './AuthController';
+import auth from "./AuthController";
+import blog from "./BlogController";
 
 let controllers = {
-  auth
+  auth,
+  blog,
 };
 
 export default controllers;

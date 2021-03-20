@@ -1,12 +1,12 @@
 "use strict";
 
 import { Router, express } from "express";
-import auth from "./auth";
+import blog from "./blog";
 import admin from "./admin";
 
 let router = Router();
-let register = app => {
-  router.use("/api", [auth, admin]);
+let register = (app) => {
+  router.use("/api", [auth, blog]);
   app.use(router);
 
   app.use((error, req, res, next) => {
@@ -14,7 +14,7 @@ let register = app => {
       success: false,
       data: null,
       error: error,
-      message: error.message
+      message: error.message,
     });
   });
 
@@ -25,7 +25,7 @@ let register = app => {
       success: false,
       data: null,
       error: error,
-      message: error.message
+      message: error.message,
     });
   });
 };
