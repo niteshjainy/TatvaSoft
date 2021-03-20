@@ -1,0 +1,20 @@
+<div #pagination class="datatable_pagination text-center">
+  <nav aria-label="Page navigation">
+    <ul class="pagination ">
+      <li>
+      <a href="javascript:void(0);" aria-label="Previous" (click)="AffectPagesArray('back');selectPreviousPage()">
+          &lt;&lt;
+        </a>
+      </li>
+      <!-- <li class="active"><a href="javascript:void(0);">1</a></li> -->
+      <li *ngFor="let page of pagesArrayOnDisplay" [ngClass]="{'active': currentSelectedPage === page}">
+        <a href="javascript:void(0);" (click)="emitPageChange(page)">{{page}}</a>
+      </li>
+      <li>
+      <a href="javascript:void(0);" aria-label="Next" (click)="AffectPagesArray('next');selectNextPage()">
+          &gt;&gt;
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

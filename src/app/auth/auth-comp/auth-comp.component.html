@@ -1,0 +1,26 @@
+<h2>Login Form</h2>
+
+<form [formGroup]="frm" >
+  <div class="imgcontainer">
+    <img src="img_avatar2.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="uname" ><b>Username</b></label>
+    <input type="text" formControlName="username" placeholder="Enter Username" name="uname" required>
+    <div class="error" *ngIf="username.touched && !username.valid && username.errors?.required">
+        Please enter email.</div>
+      <div class="error" *ngIf="username.dirty && username.errors?.pattern"> Email should be in valid
+        format.</div>
+   
+    <label for="psw"><b>Password</b></label>
+    <input type="password" formControlName="password" placeholder="Enter Password" name="psw" required>
+    <div class="error" *ngIf="password.touched && !username.valid && password.errors?.required">
+        Please enter password.
+      </div>
+    <button type="submit" (click)="login()">Login <i class="fa fa-spin fa-spinner" *ngIf='loading'></i></button>
+ 
+  </div>
+
+ 
+</form>
